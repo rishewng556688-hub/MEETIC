@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Encontrar - Verificación de Crédito</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+
+<style>
+body {
+  margin: 0;
+  background: #f3f4f6;
+  font-family: 'Inter', sans-serif;
+}
+
+/* 截图时隐藏按钮 */
+.capture-mode #top-controls {
+  display: none;
+}
+
+/* 左上角控制按钮 */
+#top-controls {
+  position: fixed;
+  top: 12px;
+  left: 12px;
+  z-index: 9999;
+  display: flex;
+  gap: 8px;
+}
+
+#top-controls button {
+  padding: 6px 10px;
+  font-size: 13px;
+  border: none;
+  border-radius: 8px;
+  background: #ef5a6a;
+  color: #fff;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+}
+
+/* 页面卡片 */
+.container {
+  width: 92%;
+  max-width: 1100px;
+  margin: 60px auto 24px;
+  background: #ffffff;
+  border-radius: 14px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+  overflow: hidden;
+}
+
+/* 可编辑 */
+[contenteditable="true"] {
+  cursor: text;
+}
+[contenteditable="true"]:focus {
+  outline: 2px dashed #ef5a6a;
+  background: #fff7f8;
+}
+
+/* 头部 */
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 26px 20px;
+  font-family: 'Poppins', sans-serif;
+  font-size: 36px;
+  font-weight: 600;
+  color: #f05b6b;
+}
+
+/* Logo（CSS 背景，截图必显示） */
+.logo {
+  width: 64px;
+  height: 64px;
+  background: url('https://raw.githubusercontent.com/rishewng556688-hub/photos/main/meetic.png')
+              center / contain no-repeat;
+}
+
+.step {
+  background: linear-gradient(90deg, #ef5a6a, #f27682);
+  color: #fff;
+  text-align: center;
+  padding: 14px;
+  font-size: 22px;
+}
+
+.subtitle {
+  background: linear-gradient(90deg, #6f61c8, #8a79de);
+  color: white;
+  text-align: center;
+  padding: 10px;
+  font-size: 15px;
+}
+
+/* 表格 */
+table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+}
+
+th {
+  background: #c6e6b3;
+  padding: 14px 8px;
+  font-size: 14px;
+}
+
+td {
+  padding: 16px 8px;
+  text-align: center;
+  font-size: 15px;
+  border-bottom: 1px solid #eee;
+}
+
+.support {
+  background: #f8b9c0;
+  padding: 12px;
+  text-align: center;
+  font-size: 14px;
+}
+
+/* 图片 */
+.image-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  padding: 16px;
+}
+
+.image-box {
+  height: 150px;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.image-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* 底部说明 */
+.footer-note {
+  background: #f8b9c0;
+  padding: 18px;
+  text-align: center;
+  font-size: 14px;
+  line-height: 1.7;
+}
+</style>
+</head>
+
+<body>
+
+<!-- 左上角控制 -->
+<div id="top-controls">
+  <button onclick="showPage(1)">Página 1</button>
+  <button onclick="showPage(2)">Página 2</button>
+  <button onclick="takeScreenshot()">📸 Captura</button>
+</div>
+
+<!-- 页面 1 -->
+<div id="page1">
+  <div class="container capture-target">
+    <div class="header">
+      <div class="logo"></div>
+      <span contenteditable="true">Encontrar</span>
+    </div>
+
+    <div class="step" contenteditable="true">Paso 2: Verificación de Datos</div>
+    <div class="subtitle" contenteditable="true">
+      Por favor, seleccione la siguiente solicitud de certificación
+    </div>
+
+    <table>
+      <tr>
+        <th>N/S</th>
+        <th>Dinero / EUR</th>
+        <th>Ganancia</th>
+        <th>Beneficio total</th>
+        <th>Beneficio mínimo</th>
+      </tr>
+      <tr>
+        <td contenteditable="true">Uno</td>
+        <td contenteditable="true">118 EUR</td>
+        <td contenteditable="true">18%</td>
+        <td contenteditable="true">21 EUR</td>
+        <td contenteditable="true">139 EUR</td>
+      </tr>
+    </table>
+
+    <div class="support" contenteditable="true">
+      La certificación cuenta con el apoyo financiero de las empresas hoteleras patrocinadoras
+    </div>
+
+    <div class="image-grid">
+      <div class="image-box"><img src="https://images.unsplash.com/photo-1566073771259-6a8506099945"></div>
+      <div class="image-box"><img src="https://images.unsplash.com/photo-1542314831-068cd1dbfeeb"></div>
+      <div class="image-box"><img src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b"></div>
+      <div class="image-box"><img src="https://images.unsplash.com/photo-1520250497591-112f2f40a3f4"></div>
+      <div class="image-box"><img src="https://images.unsplash.com/photo-1551882547-ff40c63fe5fa"></div>
+      <div class="image-box"><img src="https://images.unsplash.com/photo-1618221118493-9cfa1a1c00da"></div>
+      <div class="image-box"><img src="https://images.unsplash.com/photo-1590490360182-c33d57733427"></div>
+      <div class="image-box"><img src="https://images.unsplash.com/photo-1505691938895-1758d7feb511"></div>
+    </div>
+
+    <div class="footer-note" contenteditable="true">
+      La verificacion de credito tiene como objetivo principal comprobar suhonestidod y solvencia para evitar cualquier seconveniente duronte la cito.El proceso de
+certificacion requiere completar 30 clics de patrocinie de hoteles, los cuales debes reolizarse el mismo dia, Una vez obtenida la certificacion, se le reenbolsara
+el pago anticipodo de inmediato y se activara su tarjeta de membresia
+    </div>
+  </div>
+</div>
+
+<!-- 页面 2 -->
+<div id="page2" style="display:none;">
+  <div class="container capture-target">
+    <div class="header">
+      <div class="logo"></div>
+      <span contenteditable="true">Encontrar</span>
+    </div>
+
+    <div class="step" contenteditable="true">Paso 3: Verificación de Crédito</div>
+    <div class="subtitle" contenteditable="true">
+      Por favor, seleccione la siguiente solicitud de certificación
+    </div>
+
+    <table>
+      <tr>
+        <th>N/S</th>
+        <th>Dinero / EUR</th>
+        <th>Ganancia</th>
+        <th>Beneficio total</th>
+        <th>Beneficio mínimo</th>
+      </tr>
+      <tr>
+        <td contenteditable="true">Uno</td>
+        <td contenteditable="true">312 EUR</td>
+        <td contenteditable="true">18%</td>
+        <td contenteditable="true">56 EUR</td>
+        <td contenteditable="true">368 EUR</td>
+      </tr>
+    </table>
+
+    <div class="support" contenteditable="true">
+      La certificación cuenta con el apoyo financiero de las empresas hoteleras patrocinadoras
+    </div>
+
+    <div class="image-grid">
+      <div class="image-box"><img src="https://images.unsplash.com/photo-1566073771259-6a8506099945"></div>
+      <div class="image-box"><img src="https://images.unsplash.com/photo-1542314831-068cd1dbfeeb"></div>
+      <div class="image-box"><img src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b"></div>
+      <div class="image-box"><img src="https://images.unsplash.com/photo-1520250497591-112f2f40a3f4"></div>
+      <div class="image-box"><img src="https://images.unsplash.com/photo-1551882547-ff40c63fe5fa"></div>
+      <div class="image-box"><img src="https://images.unsplash.com/photo-1618221118493-9cfa1a1c00da"></div>
+      <div class="image-box"><img src="https://images.unsplash.com/photo-1590490360182-c33d57733427"></div>
+      <div class="image-box"><img src="https://images.unsplash.com/photo-1505691938895-1758d7feb511"></div>
+    </div>
+
+    <div class="footer-note" contenteditable="true">
+      La verificacion de credito tiene como objetivo principal comprobar suhonestidod y solvencia para evitar cualquier seconveniente duronte la cito.El proceso de
+certificacion requiere completar 30 clics de patrocinie de hoteles, los cuales debes reolizarse el mismo dia, Una vez obtenida la certificacion, se le reenbolsara
+el pago anticipodo de inmediato y se activara su tarjeta de membresia
+    </div>
+  </div>
+</div>
+
+<script>
+let currentPage = 1;
+
+function showPage(page) {
+  currentPage = page;
+  document.getElementById('page1').style.display = page === 1 ? 'block' : 'none';
+  document.getElementById('page2').style.display = page === 2 ? 'block' : 'none';
+}
+
+// 等待图片加载完成
+function waitForImages(container) {
+  const images = container.querySelectorAll('img');
+  return Promise.all([...images].map(img => {
+    if (img.complete) return Promise.resolve();
+    return new Promise(res => img.onload = img.onerror = res);
+  }));
+}
+
+function takeScreenshot() {
+  const target = document.querySelector(
+    currentPage === 1 ? '#page1 .capture-target' : '#page2 .capture-target'
+  );
+
+  document.body.classList.add('capture-mode');
+
+  waitForImages(target).then(() => {
+    html2canvas(target, {
+      backgroundColor: null,
+      scale: 2,
+      useCORS: true
+    }).then(canvas => {
+      document.body.classList.remove('capture-mode');
+      const link = document.createElement('a');
+      link.download = `verificacion_completa_p${currentPage}.png`;
+      link.href = canvas.toDataURL('image/png');
+      link.click();
+    });
+  });
+}
+</script>
+
+</body>
+</html>
